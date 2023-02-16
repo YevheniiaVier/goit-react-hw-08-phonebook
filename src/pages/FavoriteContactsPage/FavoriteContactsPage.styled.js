@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
-  padding-top: 100px;
-  margin: 0 auto;
+  background-color: grey;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+  // padding-top: 100px;
+  // margin: 0 auto;
+
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  // gap: 20px;
 `;
 
 export const SearchEndMessage = styled.p`

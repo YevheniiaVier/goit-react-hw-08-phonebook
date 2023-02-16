@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import shortid from 'shortid';
 import { useDispatch } from 'react-redux';
 import { ModalButton } from './Button';
@@ -25,9 +25,9 @@ export const ContactEditForm = ({
     ...initialState,
   });
   const dispatch = useDispatch();
-  const nameInputId = shortid.generate();
-  const telInputId = shortid.generate();
-  const imgInputId = shortid.generate();
+  const nameInputId = useMemo(() => shortid.generate(), []);
+  const telInputId = useMemo(() => shortid.generate(), []);
+  const imgInputId = useMemo(() => shortid.generate(), []);
 
   const handleChange = ({ target }) => {
     const { name, value, type, checked } = target;

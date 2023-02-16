@@ -1,11 +1,11 @@
-import { Box } from './PhonebookPage.styled';
 import { MyContacts } from 'components/MyContacts/MyContacts';
+import { Section } from 'components/Section/Section';
 
 const PhonebookPage = () => {
   return (
-    <Box>
+    <Section>
       <MyContacts />
-    </Box>
+    </Section>
   );
 };
 

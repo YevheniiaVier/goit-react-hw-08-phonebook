@@ -24,4 +24,7 @@ export const ModalContent = styled.div`
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   display: flex;
   justify-content: center;
+  @media screen and (min-height: 10px) and (max-height: 500px) {
+    top: 300px;
+  }
 `;

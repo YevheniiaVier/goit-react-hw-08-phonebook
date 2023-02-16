@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
+import { FcClearFilters } from 'react-icons/fc';
 
-import { StyledFilter, FilterLabel, FilterBox } from './Filter.styled';
-import { Button } from 'components/ContactForm/Button';
+import { StyledFilter, FilterBox, CloseButton } from './Filter.styled';
+// import { Button } from 'components/ContactForm/Button';
 const inputId = shortid.generate();
 
 export const Filter = ({ onChange, value, onClear }) => (
@@ -11,13 +12,15 @@ export const Filter = ({ onChange, value, onClear }) => (
       <StyledFilter
         id={inputId}
         type="text"
-        placeholder="Name"
+        placeholder="Search"
         value={value}
         onChange={onChange}
         name="filter"
       />
-      <FilterLabel htmlFor={inputId}>Find contacts by name</FilterLabel>
-      <Button type="button" text="X" onClick={onClear} />
+      {/* <FilterLabel htmlFor={inputId}></FilterLabel> */}
+      <CloseButton type="button" onClick={onClear}>
+        <FcClearFilters size={30} />
+      </CloseButton>
     </FilterBox>
   </>
 );

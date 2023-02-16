@@ -1,13 +1,13 @@
-import { nanoid } from 'nanoid';
+import shortid from 'shortid';
 
 const navItems = [
   {
-    id: nanoid(),
+    id: shortid.generate(),
     to: '/',
     text: 'Phonebook',
   },
   {
-    id: nanoid(),
+    id: shortid.generate(),
     to: '/favorite-contacts',
     text: 'Favorite Contacts',
   },

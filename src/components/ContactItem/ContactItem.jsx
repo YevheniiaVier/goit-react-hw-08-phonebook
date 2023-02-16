@@ -15,6 +15,8 @@ import {
   Box,
   ButtonBox,
   TelBox,
+  Name,
+  InfoWrapper,
 } from './ContactItem.styled';
 import defaultUserImg from '../../images/default.png';
 import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
@@ -69,11 +71,14 @@ export const ContactItem = ({ id, name, avatar, phone, favorite }) => {
             src={avatar === '' ? defaultUserImg : avatar}
             alt={name}
           />
-          {name}
-          <TelBox>
-            <PhoneIcon width="20" height="20" fill="#29668b"></PhoneIcon>
-            {phone}
-          </TelBox>
+          <InfoWrapper>
+            <Name>{name}</Name>
+
+            <TelBox>
+              <PhoneIcon width="20" height="20" fill="#29668b"></PhoneIcon>
+              {phone}
+            </TelBox>
+          </InfoWrapper>
         </Box>
         <ButtonBox>
           <ItemIconButton

@@ -31,6 +31,15 @@ export const MyContacts = () => {
     dispatch(operations.fetchContacts());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showModal]);
+
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
   };
@@ -63,9 +72,9 @@ export const MyContacts = () => {
       <Filter value={filter} onChange={onSetFilter} onClear={onClearBtnClick} />
       <Title text="Contacts" />
       {isLoading && <Loader />}
-      {error && <p>{error}</p>}
+      {error && <p>`{error}, please try again later`</p>}
       {contacts.length > 0 && <ContactList contacts={contacts} />}
-      {!isLoading && filter === '' && !contacts[0] && (
+      {!error && !isLoading && filter === '' && !contacts[0] && (
         <Notification
           text="There is no contact yet, you can add a new one!"
           imgPath={noContactImg}

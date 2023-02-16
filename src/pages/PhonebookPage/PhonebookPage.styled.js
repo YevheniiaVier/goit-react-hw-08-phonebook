@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
-export const Box = styled.div`
-  padding-top: 100px;
-  margin: 0 auto;
+// export const Box = styled.div`
+//   outline: 3px solid black;
 
-  display: flex;
-  flex-direction: column;
-`;
+//   // padding-top: 100px;
+//   // margin: 0 auto;
+
+//   // display: flex;
+//   // flex-direction: column;
+// `;

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import shortid from 'shortid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,18 +24,18 @@ export const ContactForm = ({ onSubmit }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectors.selectContacts);
 
-  const nameInputId = shortid.generate();
-  const telInputId = shortid.generate();
-  const imgInputId = shortid.generate();
+  const nameInputId = useMemo(() => shortid.generate(), []);
+  const telInputId = useMemo(() => shortid.generate(), []);
+  const imgInputId = useMemo(() => shortid.generate(), []);
 
-  const handleChange = ({ target }) => {
+  const handleChange = useCallback(({ target }) => {
     const { name, value, type, checked } = target;
     const newValue = type === 'checkbox' ? checked : value;
     setState(prevState => ({
       ...prevState,
       [name]: newValue,
     }));
-  };
+  }, []);
 
   const handleSubmit = e => {
     e.preventDefault();
