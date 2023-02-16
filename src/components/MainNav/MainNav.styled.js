@@ -13,18 +13,13 @@ export const Header = styled.header`
   background-color: ${p => p.theme.colors.white};
   z-index: 1;
 
-  outline: 3px solid black;
-
-  // display: flex;
-  // z-index: 10;
-  // padding: ${p => p.theme.space[3]}px;
-  // justify-content: center;
-  // box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background-color: #0c464e;
+  background-image: linear-gradient(
+    225deg,
+    #0c464e 0%,
+    #26c5eb 49%,
+    #186eab 100%
+  );
 `;
 
 export const List = styled.ul`

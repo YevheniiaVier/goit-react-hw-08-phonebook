@@ -1,6 +1,4 @@
 import { ThreeDots } from 'react-loader-spinner';
-// import { Box } from 'pages/NotExistingPage/NotExistingPage.styled.';
-
 export const Loader = () => {
   return (
     <>

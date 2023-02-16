@@ -9,6 +9,7 @@ import { Notification } from 'components/Notification/Notification';
 import { Modal } from 'components/Modal/Modal';
 import { Loader } from 'components/Loader/Loader';
 import { IconButton } from 'components/IconButton/IconButton';
+import { Container } from './Mycontacts.styled';
 
 import noContactImg from '../../images/no-contacts.png';
 import { ReactComponent as AddIcon } from '../../icons/addContact.svg';
@@ -60,7 +61,7 @@ export const MyContacts = () => {
           <ContactForm onSubmit={toggleModal} />
         </Modal>
       )}
-      <Title text="Phonebook" />
+      {/* <Title text="Phonebook" /> */}
       <Filter value={filter} onChange={onSetFilter} onClear={onClearBtnClick} />
       <Title text="Contacts" />
       {isLoading && <Loader />}
