@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { Box, List, Item, Link } from './MainNav.styled';
+import { Header, List, Item, Link } from './MainNav.styled';
 import navItems from './items';
 
 export const MainNav = () => {
@@ -10,9 +10,9 @@ export const MainNav = () => {
     </Item>
   ));
   return (
-    <Box>
+    <Header>
       <List>{elements}</List>
-    </Box>
+    </Header>
   );
 };
 

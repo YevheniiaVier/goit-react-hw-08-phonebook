@@ -4,6 +4,7 @@ import { useState, useMemo, useCallback } from 'react';
 import shortid from 'shortid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ReactComponent as CloseIcon } from '../../icons/close.svg';
 
 import { initialState } from './initialState';
 import { selectors, operations } from 'redux/contacts';
@@ -15,7 +16,7 @@ import {
   StyledLabel,
   Box,
 } from './ContactForm.styled';
-
+import { IconButton } from './IconButton';
 const notify = text =>
   toast.error(text, { theme: 'colored', pauseOnHover: true });
 
@@ -36,7 +37,9 @@ export const ContactForm = ({ onSubmit }) => {
       [name]: newValue,
     }));
   }, []);
-
+  const handleClose = () => {
+    onSubmit();
+  };
   const handleSubmit = e => {
     e.preventDefault();
     const { elements } = e.currentTarget;
@@ -114,6 +117,13 @@ export const ContactForm = ({ onSubmit }) => {
       />
       <Button text="Add contact" type="submit" active={false} />
       <ToastContainer autoClose={2000} />
+      <IconButton
+        onClick={handleClose}
+        type="button"
+        aria-label="Close modal window"
+      >
+        <CloseIcon width="20" height="20" fill="#29668b" />
+      </IconButton>
     </StyledForm>
   );
 };

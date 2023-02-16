@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledContacts = styled.ul`
-  background-color: red;
+  // background-color: red;
 
   // max-width: 700px;
   // font-weight: ${p => p.theme.fontWeights.normal};
@@ -12,5 +12,5 @@ export const StyledContacts = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  // margin: 0;
+  padding: 0px;
 `;

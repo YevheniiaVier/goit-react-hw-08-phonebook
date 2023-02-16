@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-import { Box } from './FavoriteContactsPage.styled';
 import { selectors, operations } from 'redux/contacts';
 import { ContactList } from 'components/ContactList/ContactList';
-
+import { Section } from 'components/Section/Section';
 const FavoriteContactsPage = () => {
   const contacts = useSelector(selectors.selectFavoriteContacts);
   const dispatch = useDispatch();
@@ -15,9 +14,9 @@ const FavoriteContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <Box>
+    <Section>
       <ContactList contacts={contacts} />
-    </Box>
+    </Section>
   );
 };
 

@@ -12,7 +12,6 @@ import { IconButton } from 'components/IconButton/IconButton';
 
 import noContactImg from '../../images/no-contacts.png';
 import { ReactComponent as AddIcon } from '../../icons/addContact.svg';
-import { ReactComponent as CloseIcon } from '../../icons/close.svg';
 
 import { selectFilter } from 'redux/filter/filter-selectors';
 
@@ -59,13 +58,6 @@ export const MyContacts = () => {
       {showModal && (
         <Modal onClose={toggleModal}>
           <ContactForm onSubmit={toggleModal} />
-          <IconButton
-            onClick={toggleModal}
-            type="button"
-            aria-label="Close modal window"
-          >
-            <CloseIcon width="20" height="20" fill="#29668b" />
-          </IconButton>
         </Modal>
       )}
       <Title text="Phonebook" />
