@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types';
 import { useState, useMemo } from 'react';
 import shortid from 'shortid';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ModalButton } from './Button';
 import { Checkbox } from 'components/ContactForm/Checkbox/Checkbox';
 import { editContact } from 'redux/contacts/contacts-operations';
+import { ReactComponent as CloseIcon } from '../../icons/close.svg';
+import { selectors } from 'redux/contacts';
+
 import {
   StyledForm,
   StyledInput,
   StyledLabel,
   Box,
 } from './ContactEditForm.styled';
+import { IconButton } from 'components/ContactForm/IconButton';
 
 export const ContactEditForm = ({
   contactId,
@@ -25,6 +29,7 @@ export const ContactEditForm = ({
     ...initialState,
   });
   const dispatch = useDispatch();
+  const contacts = useSelector(selectors.selectContacts);
   const nameInputId = useMemo(() => shortid.generate(), []);
   const telInputId = useMemo(() => shortid.generate(), []);
   const imgInputId = useMemo(() => shortid.generate(), []);
@@ -37,9 +42,12 @@ export const ContactEditForm = ({
       [name]: newValue,
     }));
   };
-
+  const handleClose = () => {
+    onSubmit();
+  };
   const handleSubmit = e => {
     e.preventDefault();
+
     dispatch(editContact(contact));
     onSubmit();
     setContact({ ...initialState });
@@ -97,6 +105,13 @@ export const ContactEditForm = ({
         isChecked={contact.favorite}
       />
       <ModalButton text="Edit contact" type="submit" />
+      <IconButton
+        onClick={handleClose}
+        type="button"
+        aria-label="Close modal window"
+      >
+        <CloseIcon width="20" height="20" fill="#29668b" />
+      </IconButton>
     </StyledForm>
   );
 };

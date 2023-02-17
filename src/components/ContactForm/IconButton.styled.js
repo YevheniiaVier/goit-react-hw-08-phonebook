@@ -34,13 +34,13 @@ export const StyledIconBtn = styled.button`
   align-items: center;
   justify-content: center;
   svg {
-    fill: ${p => p.theme.colors.accentDark};
+    fill: ${p => p.theme.colors.accent};
 
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-  &:hover {
-    svg {
-      fill: ${p => p.theme.colors.accent};
+      &:hover,
+    &:focus {
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.4);
+        2px 2px 5px 2px rgba(0, 0, 0, 0);
     }
-  }
 `;

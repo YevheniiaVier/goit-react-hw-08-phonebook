@@ -51,13 +51,6 @@ export const ContactItem = ({ id, name, avatar, phone, favorite }) => {
             favorite={favorite}
             onSubmit={toggleEditModal}
           />
-          <IconButton
-            onClick={toggleEditModal}
-            type="button"
-            aria-label="Close modal window"
-          >
-            <CloseIcon width="20" height="20" fill="#29668b" />
-          </IconButton>
         </Modal>
       )}
       <StyledItem>

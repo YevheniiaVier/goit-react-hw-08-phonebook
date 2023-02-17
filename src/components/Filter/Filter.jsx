@@ -16,6 +16,7 @@ export const Filter = ({ onChange, value, onClear }) => (
         value={value}
         onChange={onChange}
         name="filter"
+        autoComplete="off"
       />
       {/* <FilterLabel htmlFor={inputId}></FilterLabel> */}
       <CloseButton type="button" onClick={onClear}>

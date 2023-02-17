@@ -2,8 +2,10 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
-  padding: 15px;
-  // min-height: 60px;
+  // display: flex;
+  // align-items: center;
+  padding: 15px 0px;
+  min-height: 50px;
   margin-left: auto;
   margin-right: auto;
   border-bottom: 1px solid #ececec;
@@ -18,7 +20,7 @@ export const Header = styled.header`
     225deg,
     #0c464e 0%,
     #26c5eb 49%,
-    #186eab 100%
+    rgb(56, 210, 210) 100%
   );
 `;
 
@@ -31,15 +33,6 @@ export const List = styled.ul`
   // display: flex;
   // list-style: none;
   gap: 20px;
-  @media screen and (min-width: 480px) {
-    width: 480px;
-  }
-  @media screen and (min-width: 768px) {
-    width: 700px;
-  }
-  @media screen and (min-width: 1200px) {
-    width: 700px;
-  }
 `;
 
 export const Item = styled.li``;
@@ -69,5 +62,24 @@ export const Link = styled(NavLink)`
   :hover:not(.active),
   :focus-visible:not(.active) {
     color: ${p => p.theme.colors.accentDark};
+  }
+`;
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 700px;
   }
 `;

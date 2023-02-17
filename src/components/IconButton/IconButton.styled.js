@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledIconBtn = styled.button`
-  z-index: 10;
-  margin-bottom: ${p => p.theme.space[4]}px;
+  // margin-bottom: ${p => p.theme.space[4]}px;
   padding: ${p => p.theme.space[3]}px;
   border-radius: ${p => p.theme.radii.round};
   border: ${p => p.theme.borders.none};
@@ -26,9 +25,10 @@ export const StyledIconBtn = styled.button`
     inset 0px -8px 36px rgba(0, 0, 0, 0.3),
     inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  width: 60px;
+  width: 65px;
   height: 60px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  outline: none;
 `;

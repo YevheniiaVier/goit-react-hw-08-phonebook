@@ -131,19 +131,3 @@ export const ContactForm = ({ onSubmit }) => {
 ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
-
-// const isDuplicate = ({ name, phone }, contacts) => {
-//   const normalizedName = name.value.toLowerCase();
-//   const normalizedPhone = phone.value.toLowerCase();
-
-//   if (contacts.find(contact => normalizedName === contact.name.toLowerCase())) {
-//     return notify(`${name.value} is already in contacts`);
-//   }
-
-//   const foundNumber = contacts.find(
-//     contact => normalizedPhone === contact.phone.toLowerCase()
-//   );
-//   if (foundNumber) {
-//     return notify(`${phone.value} is already belong to ${foundNumber.name}`);
-//   }
-// };

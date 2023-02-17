@@ -22,11 +22,12 @@ export const FilterBox = styled.div`
   align-items: center;
   width: 100%;
   max-width: 600px;
-  background-color: #fff;
+  background-color: rgba(41, 102, 139, 0.9);
   border-radius: 15px;
   border: 2px solid ${p => p.theme.colors.accent};
   overflow: hidden;
-  background-color: transparent;
+
+  // background-color: transparent;
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
