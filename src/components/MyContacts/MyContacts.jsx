@@ -28,18 +28,7 @@ export const MyContacts = () => {
     dispatch(operations.fetchContacts());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (showModal) {
-  //     document.body.style.overflow = 'hidden';
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = 'unset';
-  //   };
-  // }, [showModal]);
 
-  // const toggleModal = () => {
-  //   setShowModal(prevState => !prevState);
-  // };
 
   const onSetFilter = ({ target }) => {
     dispatch(setFilter(target.value));
@@ -50,14 +39,7 @@ export const MyContacts = () => {
 
   return (
     <>
-      {/* <IconButton onClick={toggleModal} type="button" aria-label="Add contact">
-        <AddIcon width="40" height="40" fill="#29668b" />
-      </IconButton>
-      {showModal && (
-        <Modal onClose={toggleModal}>
-          <ContactForm onSubmit={toggleModal} />
-        </Modal>
-      )} */}
+
       {/* <Title text="Phonebook" /> */}
       <Filter value={filter} onChange={onSetFilter} onClear={onClearBtnClick} />
       <Title text="Contacts" />
