@@ -7,8 +7,22 @@ import { ReactComponent as AddIcon } from '../../icons/addContact.svg';
 
 import { Header, List, Item, Link, Container } from './MainNav.styled';
 import navItems from './items';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/theme/theme-selectors';
+import { useDispatch } from 'react-redux';
+import { setTheme } from 'redux/theme/theme-slice';
+
 export const MainNav = () => {
   const [showModal, setShowModal] = useState(false);
+  const theme = useSelector(selectTheme);
+  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   first
+
+  //   return () => {
+  //     second
+  //   }
+  // }, [third])
 
   useEffect(() => {
     if (showModal) {
@@ -18,7 +32,11 @@ export const MainNav = () => {
       document.body.style.overflow = 'unset';
     };
   }, [showModal]);
-
+  const toggleTheme = () => {
+    console.log(theme);
+    const newTheme = theme === 'themeDark' ? 'theme' : 'themeDark';
+    dispatch(setTheme(newTheme));
+  };
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
   };
@@ -44,6 +62,17 @@ export const MainNav = () => {
             <ContactForm onSubmit={toggleModal} />
           </Modal>
         )}
+        <button onClick={toggleTheme}>
+          {theme === 'dark' ? (
+            <span aria-label="Light mode" role="img">
+              🌞
+            </span>
+          ) : (
+            <span aria-label="Dark mode" role="img">
+              🌜
+            </span>
+          )}
+        </button>
       </Container>
     </Header>
   );
