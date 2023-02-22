@@ -25,7 +25,7 @@ export const StyledIconBtn = styled.button`
     inset 0px -8px 36px rgba(0, 0, 0, 0.3),
     inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  width: 65px;
+  width: 60px;
   height: 60px;
   display: inline-flex;
   align-items: center;

@@ -5,7 +5,6 @@ const themeSlice = createSlice({
   initialState: 'theme',
   reducers: {
     setTheme(_, { payload }) {
-      console.log(payload);
       return payload;
     },
   },

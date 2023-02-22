@@ -4,8 +4,22 @@ import { IconButton } from 'components/IconButton/IconButton';
 import { Modal } from 'components/Modal/Modal';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ReactComponent as AddIcon } from '../../icons/addContact.svg';
+import { CgSun } from 'react-icons/cg';
+import { HiMoon } from 'react-icons/hi';
 
-import { Header, List, Item, Link, Container } from './MainNav.styled';
+import {
+  Header,
+  List,
+  Item,
+  Link,
+  Container,
+  Toggle,
+  BtnLabel,
+  Ball,
+  Checkbox,
+  FaMoon,
+  FaSun,
+} from './MainNav.styled';
 import navItems from './items';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/theme/theme-selectors';
@@ -33,7 +47,6 @@ export const MainNav = () => {
     };
   }, [showModal]);
   const toggleTheme = () => {
-    console.log(theme);
     const newTheme = theme === 'themeDark' ? 'theme' : 'themeDark';
     dispatch(setTheme(newTheme));
   };
@@ -46,6 +59,9 @@ export const MainNav = () => {
       <Link to={to}>{text}</Link>
     </Item>
   ));
+  const icon =
+    theme === 'themeDark' ? <CgSun size={30} /> : <HiMoon size={30} />;
+
   return (
     <Header>
       <Container>
@@ -62,17 +78,8 @@ export const MainNav = () => {
             <ContactForm onSubmit={toggleModal} />
           </Modal>
         )}
-        <button onClick={toggleTheme}>
-          {theme === 'dark' ? (
-            <span aria-label="Light mode" role="img">
-              🌞
-            </span>
-          ) : (
-            <span aria-label="Dark mode" role="img">
-              🌜
-            </span>
-          )}
-        </button>
+
+        <Toggle onClick={toggleTheme}>{icon}</Toggle>
       </Container>
     </Header>
   );

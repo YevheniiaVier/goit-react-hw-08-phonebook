@@ -26,12 +26,10 @@ export const Header = styled.header`
 
 export const List = styled.ul`
   display: flex;
-  // flex-direction: column;
-  width: 100%;
-  margin: 0 auto;
-  // padding: 15px;
-  // display: flex;
-  // list-style: none;
+
+  // width: 100%;
+  // margin: 0 auto;
+
   gap: 20px;
 `;
 
@@ -53,11 +51,11 @@ export const Link = styled(NavLink)`
   &.active {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
       0px 2px 1px rgba(0, 0, 0, 0.2);
-    color: ${p => p.theme.colors.white};
+    color: ${p => p.theme.colors.muted};
     background-color: ${p => p.theme.colors.accentDark};
   }
   :hover {
-    color: ${p => p.theme.colors.white};
+    color: ${p => p.theme.colors.muted};
   }
   :hover:not(.active),
   :focus-visible:not(.active) {
@@ -82,4 +80,18 @@ export const Container = styled.div`
   @media screen and (min-width: 1200px) {
     width: 700px;
   }
+`;
+
+export const Toggle = styled.button`
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: ${props => props.theme.accent};
+  color: ${props => props.theme.accentDark};
+  &:focus {
+    outline: none;
+  }
+  transition: all 0.5s ease;
 `;
