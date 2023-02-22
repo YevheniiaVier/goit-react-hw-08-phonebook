@@ -7,3 +7,8 @@ export const postSignup = async data => {
   const { data: result } = await instance.post('/users/signup', data);
   return result;
 };
+
+export const postLogin = async data => {
+  const { data: result } = await instance.post('/users/login', data);
+  return result;
+};

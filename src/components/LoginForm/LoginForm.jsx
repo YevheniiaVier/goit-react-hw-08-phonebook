@@ -5,17 +5,11 @@ import shortid from 'shortid';
 
 import { initialState } from './initialState';
 import { Button } from 'components/ContactForm/Button';
-import {
-  StyledForm,
-  StyledInput,
-  StyledLabel,
-  Box,
-} from './RegisterForm.styled';
+import { StyledForm, StyledInput, StyledLabel, Box } from './LoginForm.styled';
 
-export const RegisterForm = ({ onSubmit }) => {
+export const LoginForm = ({ onSubmit }) => {
   const [state, setState] = useState({ ...initialState });
 
-  const nameInputId = useMemo(() => shortid.generate(), []);
   const emailInputId = useMemo(() => shortid.generate(), []);
   const passwordInputId = useMemo(() => shortid.generate(), []);
 
@@ -37,18 +31,6 @@ export const RegisterForm = ({ onSubmit }) => {
 
   return (
     <StyledForm autoComplete="off" onSubmit={handleSubmit}>
-      <Box>
-        <StyledInput
-          type="text"
-          value={state.name}
-          name="name"
-          required
-          onChange={handleChange}
-          id={nameInputId}
-          placeholder=" "
-        />
-        <StyledLabel htmlFor={nameInputId}>Name*</StyledLabel>
-      </Box>
       <Box>
         <StyledInput
           type="email"
@@ -78,6 +60,6 @@ export const RegisterForm = ({ onSubmit }) => {
   );
 };
 
-RegisterForm.propTypes = {
+LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
