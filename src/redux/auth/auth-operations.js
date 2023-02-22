@@ -7,7 +7,11 @@ export const signUp = createAsyncThunk(
     try {
       const result = await postSignup(user);
       return result;
-    } catch (error) {
+    } catch ({ response, message }) {
+      const error = {
+        status: response.status,
+        message: message,
+      };
       return rejectWithValue(error);
     }
   }

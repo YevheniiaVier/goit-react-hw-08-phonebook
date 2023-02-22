@@ -2,5 +2,9 @@
   "compilerOptions": {
     "baseUrl": "src"
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "src/components/ErrorMessage/ErrorMessage.styled.js",
+    "src/components/ErrorMessage/.jsx"
+  ]
 }

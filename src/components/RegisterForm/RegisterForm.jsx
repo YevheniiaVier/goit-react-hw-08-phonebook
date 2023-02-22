@@ -15,7 +15,7 @@ import {
   StyledLabel,
   Box,
 } from './RegisterForm.styled';
-import { IconButton } from 'components/ContactForm/IconButton';
+// import { IconButton } from 'components/ContactForm/IconButton';
 // const notify = text =>
 // toast.error(text, { theme: 'colored', pauseOnHover: true });
 
@@ -39,9 +39,9 @@ export const RegisterForm = ({ onSubmit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const { elements } = e.currentTarget;
-    const normalizedName = elements.name.value.toLowerCase();
-    const normalizedEmail = elements.email.value.toLowerCase();
+    // const { elements } = e.currentTarget;
+    // const normalizedName = elements.name.value.toLowerCase();
+    // const normalizedEmail = elements.email.value.toLowerCase();
     // if (
     //   contacts.find(contact => normalizedName === contact.name.toLowerCase())
     // ) {
@@ -57,7 +57,8 @@ export const RegisterForm = ({ onSubmit }) => {
     //   );
     // }
     // dispatch(operations.addContact(state));
-    onSubmit();
+    // console.log(state);
+    onSubmit(state);
     setState({ ...initialState });
   };
 
@@ -68,8 +69,6 @@ export const RegisterForm = ({ onSubmit }) => {
           type="text"
           value={state.name}
           name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           onChange={handleChange}
           id={nameInputId}
