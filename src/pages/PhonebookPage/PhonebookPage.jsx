@@ -4,7 +4,8 @@ import { Section } from 'components/Section/Section';
 const PhonebookPage = () => {
   return (
     <Section>
-      <MyContacts />
+      <p>Hello</p>
+      {/* <MyContacts /> */}
     </Section>
   );
 };

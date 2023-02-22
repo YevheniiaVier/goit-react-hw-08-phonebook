@@ -35,7 +35,7 @@ export const List = styled.ul`
 
 export const Item = styled.li``;
 
-export const Link = styled(NavLink)`
+export const ItemLink = styled(NavLink)`
   display: inline-block;
   border-radius: 10rem;
   padding-top: ${p => p.theme.space[3]}px;
@@ -65,6 +65,7 @@ export const Link = styled(NavLink)`
 export const Container = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding-left: 15px;
   padding-right: 15px;
 
@@ -94,4 +95,9 @@ export const Toggle = styled.button`
     outline: none;
   }
   transition: all 0.5s ease;
+`;
+export const RightMenuBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
 `;

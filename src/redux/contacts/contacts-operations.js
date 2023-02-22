@@ -4,7 +4,7 @@ import {
   getContacts,
   postContact,
   deleteContact,
-  putContact,
+  patchContact,
 } from 'services/contacts-api';
 
 export const fetchContacts = createAsyncThunk(
@@ -47,7 +47,7 @@ export const editContact = createAsyncThunk(
   'contacts/editContact',
   async (contact, { rejectWithValue }) => {
     try {
-      const response = await putContact(contact);
+      const response = await patchContact(contact);
       return response;
     } catch (error) {
       return rejectWithValue(error.message);

@@ -1,25 +1,25 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://63ea2fca811db3d7ef08adf5.mockapi.io/contacts',
+  baseURL: 'https://connections-api.herokuapp.com',
 });
 
 export const getContacts = async () => {
-  const { data } = await instance.get(`/`);
+  const { data } = await instance.get(`/contacts`);
   return data;
 };
 
 export const postContact = async contact => {
-  const { data } = await instance.post('/', contact);
+  const { data } = await instance.post('/contacts', contact);
   return data;
 };
 
 export const deleteContact = async contactId => {
-  const { data } = await instance.delete(`/${contactId}`);
+  const { data } = await instance.delete(`/contacts/${contactId}`);
   return data;
 };
 
-export const putContact = async contact => {
-  const { data } = await instance.put(`/${contact.id}`, contact);
+export const patchContact = async contact => {
+  const { data } = await instance.patch(`/contacts/${contact.id}`, contact);
   return data;
 };

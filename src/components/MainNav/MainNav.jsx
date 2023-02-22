@@ -6,20 +6,18 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ReactComponent as AddIcon } from '../../icons/addContact.svg';
 import { CgSun } from 'react-icons/cg';
 import { HiMoon } from 'react-icons/hi';
-
+import { Link } from 'react-router-dom';
 import {
   Header,
   List,
   Item,
-  Link,
+  ItemLink,
   Container,
   Toggle,
-  BtnLabel,
-  Ball,
-  Checkbox,
-  FaMoon,
-  FaSun,
+  RightMenuBox,
 } from './MainNav.styled';
+import { AuthNav } from './AuthNav/AuthNav';
+
 import navItems from './items';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/theme/theme-selectors';
@@ -56,7 +54,7 @@ export const MainNav = () => {
 
   const elements = navItems.map(({ id, to, text }) => (
     <Item key={id}>
-      <Link to={to}>{text}</Link>
+      <ItemLink to={to}>{text}</ItemLink>
     </Item>
   ));
   const icon =
@@ -65,21 +63,25 @@ export const MainNav = () => {
   return (
     <Header>
       <Container>
+        <Link to="/">Logo</Link>
         <List>{elements}</List>
-        <IconButton
-          onClick={toggleModal}
-          type="button"
-          aria-label="Add contact"
-        >
-          <AddIcon width="40" height="40" fill="#29668b" />
-        </IconButton>
-        {showModal && (
-          <Modal onClose={toggleModal}>
-            <ContactForm onSubmit={toggleModal} />
-          </Modal>
-        )}
+        <AuthNav />
+        <RightMenuBox>
+          <IconButton
+            onClick={toggleModal}
+            type="button"
+            aria-label="Add contact"
+          >
+            <AddIcon width="40" height="40" fill="#29668b" />
+          </IconButton>
+          {showModal && (
+            <Modal onClose={toggleModal}>
+              <ContactForm onSubmit={toggleModal} />
+            </Modal>
+          )}
 
-        <Toggle onClick={toggleTheme}>{icon}</Toggle>
+          <Toggle onClick={toggleTheme}>{icon}</Toggle>
+        </RightMenuBox>
       </Container>
     </Header>
   );
