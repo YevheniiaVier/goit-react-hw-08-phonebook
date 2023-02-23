@@ -37,7 +37,6 @@ export const MyContacts = () => {
 
   return (
     <>
-      {/* <Title text="Phonebook" /> */}
       <Filter value={filter} onChange={onSetFilter} onClear={onClearBtnClick} />
       <Title text="Contacts" />
       {isLoading && <Loader />}

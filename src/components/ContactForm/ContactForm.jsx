@@ -8,7 +8,6 @@ import { ReactComponent as CloseIcon } from '../../icons/close.svg';
 
 import { initialState } from './initialState';
 import { selectors, operations } from 'redux/contacts';
-import { Checkbox } from './Checkbox/Checkbox';
 import { Button } from './Button';
 import {
   StyledForm,
@@ -27,7 +26,6 @@ export const ContactForm = ({ onSubmit }) => {
 
   const nameInputId = useMemo(() => shortid.generate(), []);
   const telInputId = useMemo(() => shortid.generate(), []);
-  const imgInputId = useMemo(() => shortid.generate(), []);
 
   const handleChange = useCallback(({ target }) => {
     const { name, value, type, checked } = target;
@@ -43,7 +41,6 @@ export const ContactForm = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const { elements } = e.currentTarget;
-    console.log(elements);
     const normalizedName = elements.name.value.toLowerCase();
     const normalizedNumber = elements.number.value.toLowerCase();
     if (
@@ -95,27 +92,6 @@ export const ContactForm = ({ onSubmit }) => {
         />
         <StyledLabel htmlFor={telInputId}>Number*</StyledLabel>
       </Box>
-      <Box>
-        <StyledInput
-          value={state.avatar}
-          type="url"
-          name="avatar"
-          id={imgInputId}
-          placeholder=" "
-          onChange={handleChange}
-        />
-        <StyledLabel htmlFor={imgInputId}>
-          Add path to photo if you like
-        </StyledLabel>
-      </Box>
-
-      <Checkbox
-        label="Add to favorite"
-        name="favorite"
-        onChange={handleChange}
-        isChecked={state.favorite}
-        value={state.favorite}
-      />
       <Button text="Add contact" type="submit" active={false} />
       <ToastContainer autoClose={2000} />
       <IconButton

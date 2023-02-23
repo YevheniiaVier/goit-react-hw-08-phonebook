@@ -18,7 +18,6 @@ const RegisterPage = () => {
   }
   return (
     <Section>
-      <p>RegisterPage</p>
       <RegisterForm onSubmit={onRegister} />
       {authError?.status && <ErrorMessage text={authError.message} />}
     </Section>

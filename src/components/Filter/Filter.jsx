@@ -3,7 +3,6 @@ import shortid from 'shortid';
 import { FcClearFilters } from 'react-icons/fc';
 
 import { StyledFilter, FilterBox, CloseButton } from './Filter.styled';
-// import { Button } from 'components/ContactForm/Button';
 const inputId = shortid.generate();
 
 export const Filter = ({ onChange, value, onClear }) => (
@@ -18,7 +17,6 @@ export const Filter = ({ onChange, value, onClear }) => (
         name="filter"
         autoComplete="off"
       />
-      {/* <FilterLabel htmlFor={inputId}></FilterLabel> */}
       <CloseButton type="button" onClick={onClear}>
         <FcClearFilters size={30} />
       </CloseButton>

@@ -18,9 +18,8 @@ const LoginPage = () => {
   }
   return (
     <Section>
-      <p>LoginPage</p>
       <LoginForm onSubmit={onLogin} />
-      {authError?.status && <ErrorMessage text={authError.LoginPagemessage} />}
+      {authError?.status && <ErrorMessage text={authError.message} />}
     </Section>
   );
 };

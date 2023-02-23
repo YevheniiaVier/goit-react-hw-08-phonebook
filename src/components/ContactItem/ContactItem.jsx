@@ -5,22 +5,17 @@ import { useDispatch } from 'react-redux';
 import { removeContact } from 'redux/contacts/contacts-operations';
 
 import { Modal } from 'components/Modal/Modal';
-// import { IconButton } from 'components/IconButton/IconButton';
-// import { ReactComponent as CloseIcon } from '../../icons/close.svg';
 import { ContactEditForm } from 'components/ContactEditModal/ContactEditForm';
 
 import {
   StyledItem,
-  ContactImg,
   Box,
   ButtonBox,
   TelBox,
   Name,
   InfoWrapper,
 } from './ContactItem.styled';
-import defaultUserImg from '../../images/default.png';
 import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
-import { ReactComponent as StarIcon } from '../../icons/star.svg';
 import { ReactComponent as EditIcon } from '../../icons/edit.svg';
 import { ReactComponent as DeleteIcon } from '../../icons/delete.svg';
 import { ItemIconButton } from './IconButton';
@@ -46,24 +41,13 @@ export const ContactItem = ({ id, name, avatar, number, favorite }) => {
           <ContactEditForm
             id={id}
             name={name}
-            avatar={avatar}
             number={number}
-            favorite={favorite}
             onSubmit={toggleEditModal}
           />
         </Modal>
       )}
       <StyledItem>
         <Box>
-          <StarIcon
-            width="30"
-            height="30"
-            fill={favorite ? 'yellow' : 'grey'}
-          />
-          <ContactImg
-            src={avatar === '' ? defaultUserImg : avatar}
-            alt={name}
-          />
           <InfoWrapper>
             <Name>{name}</Name>
 
@@ -94,15 +78,8 @@ export const ContactItem = ({ id, name, avatar, number, favorite }) => {
   );
 };
 
-ContactItem.defaultProps = {
-  avatar: '',
-  favorite: false,
-};
-
 ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
-  avatar: PropTypes.string,
-  favorite: PropTypes.bool,
 };

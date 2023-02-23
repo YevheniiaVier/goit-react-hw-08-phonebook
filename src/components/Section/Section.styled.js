@@ -16,7 +16,9 @@ export const SectionContainer = styled.section`
   padding-right: 15px;
   padding-top: 100px;
   height: 100vh;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-left: auto;
   margin-right: auto;
 

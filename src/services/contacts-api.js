@@ -25,6 +25,5 @@ export const patchContact = async contact => {
     name: contact.name,
     number: contact.number,
   });
-  console.log('edit in api', data);
   return data;
 };

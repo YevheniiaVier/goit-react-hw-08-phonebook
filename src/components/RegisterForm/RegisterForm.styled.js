@@ -6,6 +6,7 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: ${p => p.theme.space[5]}px};
+  // background-color: ${p => p.theme.colors.darkGrey};
   :invalid {
     button {
       background-color: ${p => p.theme.colors.darkGrey};

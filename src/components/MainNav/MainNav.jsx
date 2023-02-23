@@ -7,6 +7,7 @@ import { ReactComponent as AddIcon } from '../../icons/addContact.svg';
 import { CgSun } from 'react-icons/cg';
 import { HiMoon } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import logo from '../../images/logo.png';
 import {
   Header,
   List,
@@ -15,6 +16,7 @@ import {
   Container,
   Toggle,
   RightMenuBox,
+  Wrapper,
 } from './MainNav.styled';
 import { AuthNav } from './AuthNav/AuthNav';
 import { UserMenu } from './UserMenu/UserMenu';
@@ -40,7 +42,6 @@ export const MainNav = () => {
     };
   }, [showModal]);
   const toggleTheme = () => {
-    console.log(theme);
     const newTheme = theme === 'themeDark' ? 'theme' : 'themeDark';
     dispatch(setTheme(newTheme));
   };
@@ -58,9 +59,6 @@ export const MainNav = () => {
   return (
     <Header>
       <Container>
-        <Link to="/">Logo</Link>
-        {isLoggedIn && <List>{elements}</List>}
-        {isLoggedIn ? <UserMenu /> : <AuthNav />}
         {isLoggedIn && (
           <RightMenuBox>
             <IconButton
@@ -75,8 +73,10 @@ export const MainNav = () => {
                 <ContactForm onSubmit={toggleModal} />
               </Modal>
             )}
+            <List>{elements}</List>
           </RightMenuBox>
         )}
+        <Wrapper>{isLoggedIn ? <UserMenu /> : <AuthNav />}</Wrapper>
         <Toggle onClick={toggleTheme}>{icon}</Toggle>
       </Container>
     </Header>

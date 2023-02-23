@@ -73,7 +73,7 @@ export const RegisterForm = ({ onSubmit }) => {
         <StyledLabel htmlFor={passwordInputId}>Password*</StyledLabel>
       </Box>
 
-      <Button text="Register" type="submit" active={true} />
+      <Button text="Sign up" type="submit" active={true} />
     </StyledForm>
   );
 };

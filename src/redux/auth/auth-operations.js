@@ -30,7 +30,6 @@ export const login = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const result = await postLogin(credentials);
-      console.log('login token', result.token);
       setAuthHeader(result.token);
       return result;
     } catch ({ response, message }) {

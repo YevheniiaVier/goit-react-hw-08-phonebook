@@ -4,7 +4,7 @@ const NotExistingPage = () => {
   return (
     <Box>
       <Title>Not Existing Page</Title>
-      <Link to="/">To my Phonebook</Link>
+      <Link to="/contacts">To my Contacts</Link>
     </Box>
   );
 };

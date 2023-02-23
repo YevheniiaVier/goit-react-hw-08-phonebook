@@ -58,11 +58,8 @@ export const removeContact = createAsyncThunk(
 export const editContact = createAsyncThunk(
   'contacts/editContact',
   async (contact, { rejectWithValue }) => {
-    console.log(contact, 'editcontact in operations');
-
     try {
       const response = await patchContact(contact);
-      console.log('edit contact in patch', contact);
       return response;
     } catch ({ response, message }) {
       const error = {

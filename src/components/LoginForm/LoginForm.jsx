@@ -58,7 +58,7 @@ export const LoginForm = ({ onSubmit }) => {
         <StyledLabel htmlFor={passwordInputId}>Password*</StyledLabel>
       </Box>
 
-      <Button text="Register" type="submit" active={true} />
+      <Button text="Log In" type="submit" active={true} />
     </StyledForm>
   );
 };

@@ -24,10 +24,6 @@ export const Header = styled.header`
 
 export const List = styled.ul`
   display: flex;
-
-  // width: 100%;
-  // margin: 0 auto;
-
   gap: 20px;
 `;
 
@@ -82,6 +78,7 @@ export const Container = styled.div`
 `;
 
 export const Toggle = styled.button`
+  // justify-self: right;
   cursor: pointer;
   height: 40px;
   width: 40px;
@@ -98,4 +95,22 @@ export const RightMenuBox = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+`;
+
+export const LogoImg = styled.img.attrs(props => ({
+  src: props.src,
+  alt: props.alt,
+}))`
+  width: 50px;
+  height: auto;
+  margin-right: ${p => p.theme.space[3]}px;
+  border: ${p => `2px solid ${p.theme.colors.accent}`};
+  border-radius: ${p => p.theme.radii.big};
+  background-color: ${p => p.theme.colors.accentDark}; ;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  // justify-content: space-between;
 `;

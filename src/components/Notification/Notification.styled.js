@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const NotificationText = styled.p`
   padding: ${p => p.theme.space[4]}px;
-  color: ${p => p.theme.colors.accentDark};
+  color: ${p => p.theme.colors.primary};
   font-weight: ${p => p.theme.fontWeights.bold};
   font-size: ${p => p.theme.fontSizes.l};
   margin-bottom: ${p => p.theme.space[2]}px;

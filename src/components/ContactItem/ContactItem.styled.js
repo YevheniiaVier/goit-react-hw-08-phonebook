@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const StyledItem = styled.li`
   display: flex;
-  // position: relative;
   justify-content: space-between;
-  // gap: 15px;
-  // align-items: center;
   color: ${p => p.theme.colors.primary};
   padding: ${p => p.theme.space[3]}px;
+  padding-left: ${p => p.theme.space[5]}px;
+  padding-right: ${p => p.theme.space[5]}px;
+
   border-radius: ${p => p.theme.radii.big};
   background-image: linear-gradient(
     15deg,
@@ -21,20 +21,6 @@ export const StyledItem = styled.li`
       inset 0 2px 1px 1px rgba(255, 255, 255, 0.9),
       inset 0 -2px 1px rgba(0, 0, 0, 0.25);
   }
-`;
-
-export const ContactImg = styled.img.attrs(props => ({
-  src: props.src,
-  alt: props.alt,
-}))`
-  width: 60px;
-  // height: auto;
-  margin-right: ${p => p.theme.space[4]}px;
-  margin-left: ${p => p.theme.space[2]}px;
-
-  border: ${p => `2px solid ${p.theme.colors.accent}`};
-  border-radius: ${p => p.theme.radii.big};
-  background-color: ${p => p.theme.colors.accentDark}; ;
 `;
 
 export const Box = styled.div`
@@ -53,6 +39,8 @@ export const TelBox = styled.div`
   align-items: center;
   gap: ${p => p.theme.space[3]}px;
   align-self: right;
+  font-size: 22px;
+  font-weight: ${p => p.theme.fontWeights.normal};
 `;
 
 export const Name = styled.span`

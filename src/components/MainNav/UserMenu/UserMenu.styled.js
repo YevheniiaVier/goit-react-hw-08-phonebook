@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const Menu = styled.div``;
+export const Menu = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+export const BtnBox = styled.div``;
 
 export const Mail = styled.p``;
-export const WelcomeMessage = styled.p``;
-
-export const UserMenuButton = styled.button``;
+export const WelcomeMessage = styled.p`
+  font-size: 17px;
+  color: ${p => p.theme.colors.primary};
+  font-weight: ${p => p.theme.fontWeights.bold};
+`;
 
 export const ItemLink = styled(NavLink)`
   display: inline-block;

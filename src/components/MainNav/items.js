@@ -6,11 +6,6 @@ const navItems = [
     to: '/contacts',
     text: 'Contacts',
   },
-  {
-    id: shortid.generate(),
-    to: '/favorite-contacts',
-    text: 'Favorite Contacts',
-  },
 ];
 
 export default navItems;

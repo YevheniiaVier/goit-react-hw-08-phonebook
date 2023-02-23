@@ -6,18 +6,9 @@ export const ContactList = ({ contacts }) => {
   return (
     <StyledContacts>
       {contacts.map(contact => {
-        const { id, avatar, name, number, favorite } = contact;
+        const { id, name, number } = contact;
 
-        return (
-          <ContactItem
-            key={id}
-            id={id}
-            number={number}
-            avatar={avatar}
-            name={name}
-            favorite={favorite}
-          />
-        );
+        return <ContactItem key={id} id={id} number={number} name={name} />;
       })}
     </StyledContacts>
   );
@@ -29,8 +20,6 @@ ContactList.propTypes = {
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
-      avatar: PropTypes.string,
-      favorite: PropTypes.bool,
     })
   ),
 };
