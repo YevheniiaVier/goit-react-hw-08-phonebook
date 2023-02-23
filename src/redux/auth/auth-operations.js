@@ -30,8 +30,8 @@ export const login = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const result = await postLogin(credentials);
+      console.log('login token', result.token);
       setAuthHeader(result.token);
-      console.log('login-operation', result);
       return result;
     } catch ({ response, message }) {
       const error = {
@@ -59,12 +59,20 @@ export const logout = createAsyncThunk(
     }
   }
 );
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, { rejectWithValue, getState }) => {
+    const { token } = getState().auth;
+    console.log(token, 'refreshing');
 
-export const getCurrentUser = createAsyncThunk(
-  'auth/getUser',
-  async (_, { rejectWithValue }) => {
+    if (!token) {
+      return rejectWithValue('token is not valid');
+    }
+
+    // setAuthHeader(token);
     try {
-      const result = await getUser();
+      const result = await getUser(token);
+      console.log(result, 'result in geyuser');
       return result;
     } catch ({ response, message }) {
       const error = {

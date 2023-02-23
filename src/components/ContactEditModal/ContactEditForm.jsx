@@ -17,14 +17,14 @@ import {
 import { IconButton } from 'components/ContactForm/IconButton';
 
 export const ContactEditForm = ({
-  contactId,
+  id,
   name,
   avatar,
-  phone,
+  number,
   favorite,
   onSubmit,
 }) => {
-  const initialState = { id: contactId, name, avatar, phone, favorite };
+  const initialState = { id, name, avatar, number, favorite };
   const [contact, setContact] = useState({
     ...initialState,
   });
@@ -49,6 +49,7 @@ export const ContactEditForm = ({
     e.preventDefault();
 
     dispatch(editContact(contact));
+    console.log('edit contact,', contact);
     onSubmit();
     setContact({ ...initialState });
   };
@@ -71,9 +72,9 @@ export const ContactEditForm = ({
       </Box>
       <Box>
         <StyledInput
-          value={contact.phone}
+          value={contact.number}
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
@@ -115,6 +116,10 @@ export const ContactEditForm = ({
     </StyledForm>
   );
 };
+ContactEditForm.defaultProps = {
+  avatar: '',
+  favorite: false,
+};
 
 ContactEditForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
@@ -122,7 +127,7 @@ ContactEditForm.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
       avatar: PropTypes.string,
       favorite: PropTypes.bool,
     })

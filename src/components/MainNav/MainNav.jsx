@@ -54,27 +54,28 @@ export const MainNav = () => {
   ));
   const icon =
     theme === 'themeDark' ? <CgSun size={30} /> : <HiMoon size={30} />;
-
   return (
     <Header>
       <Container>
         <Link to="/">Logo</Link>
         {isLoggedIn && <List>{elements}</List>}
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
-        <RightMenuBox>
-          <IconButton
-            onClick={toggleModal}
-            type="button"
-            aria-label="Add contact"
-          >
-            <AddIcon width="40" height="40" fill="#29668b" />
-          </IconButton>
-          {showModal && (
-            <Modal onClose={toggleModal}>
-              <ContactForm onSubmit={toggleModal} />
-            </Modal>
-          )}
-        </RightMenuBox>
+        {isLoggedIn && (
+          <RightMenuBox>
+            <IconButton
+              onClick={toggleModal}
+              type="button"
+              aria-label="Add contact"
+            >
+              <AddIcon width="40" height="40" fill="#29668b" />
+            </IconButton>
+            {showModal && (
+              <Modal onClose={toggleModal}>
+                <ContactForm onSubmit={toggleModal} />
+              </Modal>
+            )}
+          </RightMenuBox>
+        )}
         <Toggle onClick={toggleTheme}>{icon}</Toggle>
       </Container>
     </Header>

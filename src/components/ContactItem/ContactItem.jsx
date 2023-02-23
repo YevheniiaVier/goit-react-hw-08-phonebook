@@ -25,13 +25,13 @@ import { ReactComponent as EditIcon } from '../../icons/edit.svg';
 import { ReactComponent as DeleteIcon } from '../../icons/delete.svg';
 import { ItemIconButton } from './IconButton';
 
-export const ContactItem = ({ contactId, name, avatar, number, favorite }) => {
+export const ContactItem = ({ id, name, avatar, number, favorite }) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const dispatch = useDispatch();
 
   const handleDelete = () => {
     if (window.confirm('Are you sure you want to remove this contact?')) {
-      dispatch(removeContact(contactId));
+      dispatch(removeContact(id));
     }
   };
 
@@ -44,7 +44,7 @@ export const ContactItem = ({ contactId, name, avatar, number, favorite }) => {
       {showEditModal && (
         <Modal onClose={toggleEditModal}>
           <ContactEditForm
-            contactId={contactId}
+            id={id}
             name={name}
             avatar={avatar}
             number={number}
@@ -94,8 +94,13 @@ export const ContactItem = ({ contactId, name, avatar, number, favorite }) => {
   );
 };
 
+ContactItem.defaultProps = {
+  avatar: '',
+  favorite: false,
+};
+
 ContactItem.propTypes = {
-  contactId: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   avatar: PropTypes.string,

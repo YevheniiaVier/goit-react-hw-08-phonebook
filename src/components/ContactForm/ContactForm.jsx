@@ -43,8 +43,9 @@ export const ContactForm = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const { elements } = e.currentTarget;
+    console.log(elements);
     const normalizedName = elements.name.value.toLowerCase();
-    const normalizedPhone = elements.phone.value.toLowerCase();
+    const normalizedNumber = elements.number.value.toLowerCase();
     if (
       contacts.find(contact => normalizedName === contact.name.toLowerCase())
     ) {
@@ -52,11 +53,11 @@ export const ContactForm = ({ onSubmit }) => {
     }
 
     const foundNumber = contacts.find(
-      contact => normalizedPhone === contact.phone.toLowerCase()
+      contact => normalizedNumber === contact.number.toLowerCase()
     );
     if (foundNumber) {
       return notify(
-        `${elements.phone.value} is already belong to ${foundNumber.name}`
+        `${elements.number.value} is already belong to ${foundNumber.name}`
       );
     }
     dispatch(operations.addContact(state));
@@ -83,8 +84,8 @@ export const ContactForm = ({ onSubmit }) => {
       <Box>
         <StyledInput
           type="tel"
-          value={state.phone}
-          name="phone"
+          value={state.number}
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required

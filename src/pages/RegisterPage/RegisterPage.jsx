@@ -9,7 +9,7 @@ import { useAuth } from 'hooks/useAuth';
 const RegisterPage = () => {
   const dispatch = useDispatch();
 
-  const { isLoggedIn, authError } = useAuth;
+  const { isLoggedIn, authError } = useAuth();
   const onRegister = userData => {
     dispatch(signUp(userData));
   };

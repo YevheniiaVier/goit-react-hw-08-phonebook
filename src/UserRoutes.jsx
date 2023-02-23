@@ -1,7 +1,8 @@
 import { lazy, Suspense } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
-
+import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
+import { PublicRoute } from 'components/PublicRoute/PublicRoute';
 const PhonebookPage = lazy(() => import('pages/PhonebookPage/PhonebookPage'));
 const FavoriteContactsPage = lazy(() =>
   import('pages/FavoriteContactsPage/FavoriteContactsPage')
@@ -18,10 +19,17 @@ export const UserRoutes = () => {
     <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<PhonebookPage />}>
-          <Route path="/contacts" element={<ContactsPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/favorite-contacts" element={<FavoriteContactsPage />} />
+          <Route element={<PublicRoute />}>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path="/contacts" element={<ContactsPage />} />
+            <Route
+              path="/favorite-contacts"
+              element={<FavoriteContactsPage />}
+            />
+          </Route>
         </Route>
         <Route path="*" element={<NotExistingPage />} />
       </Routes>
