@@ -1,1 +1,1 @@
-export const selectTheme = store => store.theme;
+export const selectTheme = store => store.theme.theme;

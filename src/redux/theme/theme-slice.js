@@ -2,10 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const themeSlice = createSlice({
   name: 'theme',
-  initialState: 'theme',
+  initialState: {
+    theme: 'theme',
+  },
   reducers: {
-    setTheme(_, { payload }) {
-      return payload;
+    setTheme(state, { payload }) {
+      state.theme = payload;
     },
   },
 });

@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -17,17 +17,26 @@ import { themeReducer } from './theme/theme-slice';
 import { authReducer } from './auth/auth-slice';
 
 const authPersistConfig = {
-  key: 'token',
+  key: 'auth',
   storage,
   whitelist: ['token'],
 };
-const persistedReducer = persistReducer(authPersistConfig, authReducer);
+
+const themePersistConfig = {
+  key: 'theme',
+  storage,
+  whitelist: ['theme'],
+};
+
+const authPersistedReducer = persistReducer(authPersistConfig, authReducer);
+const themePersistedReducer = persistReducer(themePersistConfig, themeReducer);
+
 export const store = configureStore({
   reducer: {
     contacts: contactsReducer,
     filter: filterReducer,
-    theme: themeReducer,
-    auth: persistedReducer,
+    theme: themePersistedReducer,
+    auth: authPersistedReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

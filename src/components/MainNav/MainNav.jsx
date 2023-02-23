@@ -40,6 +40,7 @@ export const MainNav = () => {
     };
   }, [showModal]);
   const toggleTheme = () => {
+    console.log(theme);
     const newTheme = theme === 'themeDark' ? 'theme' : 'themeDark';
     dispatch(setTheme(newTheme));
   };
