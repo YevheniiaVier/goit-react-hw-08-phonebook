@@ -63,16 +63,13 @@ export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, { rejectWithValue, getState }) => {
     const { token } = getState().auth;
-    console.log(token, 'refreshing');
 
     if (!token) {
       return rejectWithValue('token is not valid');
     }
 
-    // setAuthHeader(token);
     try {
       const result = await getUser(token);
-      console.log(result, 'result in geyuser');
       return result;
     } catch ({ response, message }) {
       const error = {

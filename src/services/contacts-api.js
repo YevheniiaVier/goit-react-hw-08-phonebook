@@ -21,6 +21,10 @@ export const deleteContact = async contactId => {
 };
 
 export const patchContact = async contact => {
-  const { data } = await instance.patch(`/contacts/${contact.id}`, contact);
+  const { data } = await instance.patch(`/contacts/${contact.id}`, {
+    name: contact.name,
+    number: contact.number,
+  });
+  console.log('edit in api', data);
   return data;
 };

@@ -3,10 +3,8 @@ import { useState, useMemo } from 'react';
 import shortid from 'shortid';
 import { useDispatch, useSelector } from 'react-redux';
 import { ModalButton } from './Button';
-import { Checkbox } from 'components/ContactForm/Checkbox/Checkbox';
 import { editContact } from 'redux/contacts/contacts-operations';
 import { ReactComponent as CloseIcon } from '../../icons/close.svg';
-import { selectors } from 'redux/contacts';
 
 import {
   StyledForm,
@@ -16,23 +14,14 @@ import {
 } from './ContactEditForm.styled';
 import { IconButton } from 'components/ContactForm/IconButton';
 
-export const ContactEditForm = ({
-  id,
-  name,
-  avatar,
-  number,
-  favorite,
-  onSubmit,
-}) => {
-  const initialState = { id, name, avatar, number, favorite };
+export const ContactEditForm = ({ id, name, number, onSubmit }) => {
+  const initialState = { id, name, number };
   const [contact, setContact] = useState({
     ...initialState,
   });
   const dispatch = useDispatch();
-  const contacts = useSelector(selectors.selectContacts);
   const nameInputId = useMemo(() => shortid.generate(), []);
   const telInputId = useMemo(() => shortid.generate(), []);
-  const imgInputId = useMemo(() => shortid.generate(), []);
 
   const handleChange = ({ target }) => {
     const { name, value, type, checked } = target;
@@ -47,9 +36,7 @@ export const ContactEditForm = ({
   };
   const handleSubmit = e => {
     e.preventDefault();
-
     dispatch(editContact(contact));
-    console.log('edit contact,', contact);
     onSubmit();
     setContact({ ...initialState });
   };
@@ -84,27 +71,7 @@ export const ContactEditForm = ({
         />
         <StyledLabel htmlFor={telInputId}>Number</StyledLabel>
       </Box>
-      <Box>
-        <StyledInput
-          value={contact.avatar ?? ''}
-          type="url"
-          name="avatar"
-          id={imgInputId}
-          placeholder=" "
-          onChange={handleChange}
-        />
-        <StyledLabel htmlFor={imgInputId}>
-          {contact.avatar ? 'Photo' : 'Add path to photo if you like'}
-        </StyledLabel>
-      </Box>
 
-      <Checkbox
-        value={contact.favorite}
-        label={contact.favorite ? 'Remove from favorite' : 'Add to favorite'}
-        name="favorite"
-        onChange={handleChange}
-        isChecked={contact.favorite}
-      />
       <ModalButton text="Edit contact" type="submit" />
       <IconButton
         onClick={handleClose}
@@ -116,10 +83,6 @@ export const ContactEditForm = ({
     </StyledForm>
   );
 };
-ContactEditForm.defaultProps = {
-  avatar: '',
-  favorite: false,
-};
 
 ContactEditForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
@@ -128,8 +91,6 @@ ContactEditForm.propTypes = {
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
-      avatar: PropTypes.string,
-      favorite: PropTypes.bool,
     })
   ),
 };

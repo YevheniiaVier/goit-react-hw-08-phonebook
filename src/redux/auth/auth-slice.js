@@ -35,7 +35,6 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(login.rejected, (state, action) => {
-        console.log('slicerejected', state);
         return state;
       });
     builder
@@ -53,7 +52,6 @@ const authSlice = createSlice({
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        console.log(action.payload, 'refreshing payload');
         state.user = action.payload;
         state.isLoggedIn = true;
       })
