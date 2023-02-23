@@ -1,11 +1,10 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { MainNav } from 'components/MainNav/MainNav';
-
-const PhonebookPage = () => {
+import { Navigate } from 'react-router-dom';
+const Layout = () => {
   return (
     <>
-      <p>Home</p>
       <MainNav />
       <Suspense fallback={null}>
         <Outlet />
@@ -14,4 +13,4 @@ const PhonebookPage = () => {
   );
 };
 
-export default PhonebookPage;
+export default Layout;

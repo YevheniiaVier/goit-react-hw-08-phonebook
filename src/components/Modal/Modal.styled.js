@@ -7,6 +7,7 @@ export const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in;
 `;
 
 export const ModalContent = styled.div`

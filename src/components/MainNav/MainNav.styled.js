@@ -84,8 +84,7 @@ export const Toggle = styled.button`
   width: 40px;
   border-radius: 50%;
   border: none;
-  background-color: ${props => props.theme.accent};
-  color: ${props => props.theme.accentDark};
+  background-color: 'transparent';
   &:focus {
     outline: none;
   }

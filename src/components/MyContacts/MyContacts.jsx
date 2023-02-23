@@ -5,9 +5,7 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { Title } from 'components/Title/Title';
 import { Notification } from 'components/Notification/Notification';
-// import { Modal } from 'components/Modal/Modal';
 import { Loader } from 'components/Loader/Loader';
-// import { Container } from './Mycontacts.styled';
 
 import noContactImg from '../../images/no-contacts.png';
 
@@ -17,7 +15,6 @@ import { setFilter } from 'redux/filter/filter-slice';
 import { selectors, operations } from 'redux/contacts';
 
 export const MyContacts = () => {
-  // const [showModal, setShowModal] = useState(false);
   const contacts = useSelector(selectors.selectFilteredContacts);
   const filter = useSelector(selectFilter);
   const isLoading = useSelector(selectors.selectIsLoading);

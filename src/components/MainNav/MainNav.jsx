@@ -6,8 +6,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ReactComponent as AddIcon } from '../../icons/addContact.svg';
 import { CgSun } from 'react-icons/cg';
 import { HiMoon } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
-import logo from '../../images/logo.png';
+
 import {
   Header,
   List,
@@ -55,7 +54,11 @@ export const MainNav = () => {
     </Item>
   ));
   const icon =
-    theme === 'themeDark' ? <CgSun size={30} /> : <HiMoon size={30} />;
+    theme === 'themeDark' ? (
+      <CgSun size={30} fill={'#0A5A87'} />
+    ) : (
+      <HiMoon size={30} fill={'#E5BE1A'} />
+    );
   return (
     <Header>
       <Container>
@@ -77,7 +80,14 @@ export const MainNav = () => {
           </RightMenuBox>
         )}
         <Wrapper>{isLoggedIn ? <UserMenu /> : <AuthNav />}</Wrapper>
-        <Toggle onClick={toggleTheme}>{icon}</Toggle>
+        <Toggle
+          style={{
+            backgroundColor: theme === 'themeDark' ? '#E5BE1A' : '#0A5A87',
+          }}
+          onClick={toggleTheme}
+        >
+          {icon}
+        </Toggle>
       </Container>
     </Header>
   );
