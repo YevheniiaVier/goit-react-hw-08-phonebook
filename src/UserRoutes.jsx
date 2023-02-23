@@ -17,11 +17,12 @@ export const UserRoutes = () => {
   return (
     <Suspense fallback={null}>
       <Routes>
-        <Route path="/" element={<PhonebookPage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="favorite-contacts" element={<FavoriteContactsPage />} />
+        <Route path="/" element={<PhonebookPage />}>
+          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/favorite-contacts" element={<FavoriteContactsPage />} />
+        </Route>
         <Route path="*" element={<NotExistingPage />} />
       </Routes>
     </Suspense>

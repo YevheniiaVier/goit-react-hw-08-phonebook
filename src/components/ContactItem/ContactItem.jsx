@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux';
 import { removeContact } from 'redux/contacts/contacts-operations';
 
 import { Modal } from 'components/Modal/Modal';
-import { IconButton } from 'components/IconButton/IconButton';
-import { ReactComponent as CloseIcon } from '../../icons/close.svg';
+// import { IconButton } from 'components/IconButton/IconButton';
+// import { ReactComponent as CloseIcon } from '../../icons/close.svg';
 import { ContactEditForm } from 'components/ContactEditModal/ContactEditForm';
 
 import {
@@ -25,13 +25,13 @@ import { ReactComponent as EditIcon } from '../../icons/edit.svg';
 import { ReactComponent as DeleteIcon } from '../../icons/delete.svg';
 import { ItemIconButton } from './IconButton';
 
-export const ContactItem = ({ id, name, avatar, phone, favorite }) => {
+export const ContactItem = ({ contactId, name, avatar, number, favorite }) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const dispatch = useDispatch();
 
   const handleDelete = () => {
     if (window.confirm('Are you sure you want to remove this contact?')) {
-      dispatch(removeContact(id));
+      dispatch(removeContact(contactId));
     }
   };
 
@@ -44,10 +44,10 @@ export const ContactItem = ({ id, name, avatar, phone, favorite }) => {
       {showEditModal && (
         <Modal onClose={toggleEditModal}>
           <ContactEditForm
-            contactId={id}
+            contactId={contactId}
             name={name}
             avatar={avatar}
-            phone={phone}
+            number={number}
             favorite={favorite}
             onSubmit={toggleEditModal}
           />
@@ -69,7 +69,7 @@ export const ContactItem = ({ id, name, avatar, phone, favorite }) => {
 
             <TelBox>
               <PhoneIcon width="20" height="20" fill="#29668b"></PhoneIcon>
-              {phone}
+              {number}
             </TelBox>
           </InfoWrapper>
         </Box>
@@ -95,10 +95,9 @@ export const ContactItem = ({ id, name, avatar, phone, favorite }) => {
 };
 
 ContactItem.propTypes = {
-  id: PropTypes.string.isRequired,
+  contactId: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
   avatar: PropTypes.string,
   favorite: PropTypes.bool,
-  createdAt: PropTypes.string,
 };

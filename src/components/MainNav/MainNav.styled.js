@@ -2,19 +2,17 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
-  // display: flex;
-  // align-items: center;
   padding: 5px 0px;
   min-height: 50px;
   margin-left: auto;
   margin-right: auto;
-  border-bottom: 1px solid #ececec;
+  // border-bottom: 1px solid #ececec;
   position: fixed;
   top: 0;
   width: 100%;
   background-color: ${p => p.theme.colors.white};
   z-index: 1;
-
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   background-color: #0c464e;
   background-image: linear-gradient(
     225deg,

@@ -17,24 +17,19 @@ import {
   RightMenuBox,
 } from './MainNav.styled';
 import { AuthNav } from './AuthNav/AuthNav';
-
+import { UserMenu } from './UserMenu/UserMenu';
 import navItems from './items';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/theme/theme-selectors';
 import { useDispatch } from 'react-redux';
 import { setTheme } from 'redux/theme/theme-slice';
+import { useAuth } from 'hooks/useAuth';
 
 export const MainNav = () => {
   const [showModal, setShowModal] = useState(false);
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   first
-
-  //   return () => {
-  //     second
-  //   }
-  // }, [third])
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     if (showModal) {
@@ -64,8 +59,8 @@ export const MainNav = () => {
     <Header>
       <Container>
         <Link to="/">Logo</Link>
-        <List>{elements}</List>
-        <AuthNav />
+        {isLoggedIn && <List>{elements}</List>}
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
         <RightMenuBox>
           <IconButton
             onClick={toggleModal}
@@ -79,9 +74,8 @@ export const MainNav = () => {
               <ContactForm onSubmit={toggleModal} />
             </Modal>
           )}
-
-          <Toggle onClick={toggleTheme}>{icon}</Toggle>
         </RightMenuBox>
+        <Toggle onClick={toggleTheme}>{icon}</Toggle>
       </Container>
     </Header>
   );

@@ -1,16 +1,15 @@
 import { Section } from 'components/Section/Section';
 import { Navigate } from 'react-router-dom';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { signUp } from 'redux/auth/auth-operations';
-import { getAuthError, getIsLoggedIn } from 'redux/auth/auth-selectors';
 import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage';
+import { useAuth } from 'hooks/useAuth';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
-  const { status, message } = useSelector(getAuthError);
-  const isLoggedIn = useSelector(getIsLoggedIn);
 
+  const { isLoggedIn, authError } = useAuth;
   const onRegister = userData => {
     dispatch(signUp(userData));
   };
@@ -21,7 +20,7 @@ const RegisterPage = () => {
     <Section>
       <p>RegisterPage</p>
       <RegisterForm onSubmit={onRegister} />
-      {status && <ErrorMessage text={message} />}
+      {authError?.status && <ErrorMessage text={authError.message} />}
     </Section>
   );
 };

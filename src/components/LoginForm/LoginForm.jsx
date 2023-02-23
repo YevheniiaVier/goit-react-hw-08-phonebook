@@ -30,7 +30,10 @@ export const LoginForm = ({ onSubmit }) => {
   };
 
   return (
-    <StyledForm autoComplete="off" onSubmit={handleSubmit}>
+    <StyledForm
+      // autoComplete="off"
+      onSubmit={handleSubmit}
+    >
       <Box>
         <StyledInput
           type="email"

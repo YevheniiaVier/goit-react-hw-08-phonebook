@@ -6,13 +6,13 @@ export const ContactList = ({ contacts }) => {
   return (
     <StyledContacts>
       {contacts.map(contact => {
-        const { id, avatar, name, phone, favorite } = contact;
+        const { contactId, avatar, name, number, favorite } = contact;
 
         return (
           <ContactItem
-            key={id}
-            id={id}
-            phone={phone}
+            key={contactId}
+            id={contactId}
+            number={number}
             avatar={avatar}
             name={name}
             favorite={favorite}
@@ -26,12 +26,11 @@ export const ContactList = ({ contacts }) => {
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.exact({
-      id: PropTypes.string.isRequired,
+      contactId: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
       avatar: PropTypes.string,
       favorite: PropTypes.bool,
-      createdAt: PropTypes.string,
     })
   ),
 };

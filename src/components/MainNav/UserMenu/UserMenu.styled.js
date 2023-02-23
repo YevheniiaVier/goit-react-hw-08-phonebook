@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const Menu = styled.div``;
 
 export const Mail = styled.p``;
+export const WelcomeMessage = styled.p``;
 
 export const UserMenuButton = styled.button``;
 

@@ -1,12 +1,13 @@
-const ContactsPage = () => {
-  return <p>ContactsPAge</p>;
-};
+// import { MyContacts } from 'components/MyContacts/MyContacts';
+import { Section } from 'components/Section/Section';
 
-// ContactsPage.defaultProps = {
-//   contacts: [],
-// };
-// ContactsPage.propTypes = {
-//   contacts: PropTypes.array.isRequired,
-// };
+const ContactsPage = () => {
+  return (
+    <Section>
+      <p>Contacts</p>
+      {/* <MyContacts /> */}
+    </Section>
+  );
+};
 
 export default ContactsPage;

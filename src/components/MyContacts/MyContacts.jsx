@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { ContactList } from 'components/ContactList/ContactList';
@@ -28,8 +28,6 @@ export const MyContacts = () => {
     dispatch(operations.fetchContacts());
   }, [dispatch]);
 
-
-
   const onSetFilter = ({ target }) => {
     dispatch(setFilter(target.value));
   };
@@ -39,7 +37,6 @@ export const MyContacts = () => {
 
   return (
     <>
-
       {/* <Title text="Phonebook" /> */}
       <Filter value={filter} onChange={onSetFilter} onClear={onClearBtnClick} />
       <Title text="Contacts" />

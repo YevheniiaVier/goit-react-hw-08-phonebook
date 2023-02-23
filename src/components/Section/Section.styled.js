@@ -15,6 +15,7 @@ export const SectionContainer = styled.section`
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 100px;
+  height: 100vh;
 
   margin-left: auto;
   margin-right: auto;
@@ -28,5 +29,4 @@ export const SectionContainer = styled.section`
   @media screen and (min-width: 1200px) {
     width: 700px;
   }
-  outline: 3px solid black;
 `;

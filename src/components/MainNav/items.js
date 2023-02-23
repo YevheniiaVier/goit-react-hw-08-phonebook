@@ -3,8 +3,8 @@ import shortid from 'shortid';
 const navItems = [
   {
     id: shortid.generate(),
-    to: '/',
-    text: 'Phonebook',
+    to: '/contacts',
+    text: 'Contacts',
   },
   {
     id: shortid.generate(),
