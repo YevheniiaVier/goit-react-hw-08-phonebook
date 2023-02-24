@@ -6,7 +6,6 @@ export const Header = styled.header`
   min-height: 50px;
   margin-left: auto;
   margin-right: auto;
-  // border-bottom: 1px solid #ececec;
   position: fixed;
   top: 0;
   width: 100%;
@@ -78,7 +77,6 @@ export const Container = styled.div`
 `;
 
 export const Toggle = styled.button`
-  // justify-self: right;
   cursor: pointer;
   height: 40px;
   width: 40px;
@@ -111,5 +109,4 @@ export const LogoImg = styled.img.attrs(props => ({
 export const Wrapper = styled.div`
   display: flex;
   gap: 10px;
-  // justify-content: space-between;
 `;

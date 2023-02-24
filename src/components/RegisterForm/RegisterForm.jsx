@@ -1,4 +1,3 @@
-// import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useState, useMemo, useCallback } from 'react';
 import shortid from 'shortid';
@@ -64,7 +63,7 @@ export const RegisterForm = ({ onSubmit }) => {
       <Box>
         <StyledInput
           value={state.password}
-          type="text"
+          type="password"
           name="password"
           id={passwordInputId}
           placeholder=" "

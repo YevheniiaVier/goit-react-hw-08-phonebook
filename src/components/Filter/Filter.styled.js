@@ -26,8 +26,6 @@ export const FilterBox = styled.div`
   border-radius: 15px;
   border: 2px solid ${p => p.theme.colors.accent};
   overflow: hidden;
-
-  // background-color: transparent;
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,

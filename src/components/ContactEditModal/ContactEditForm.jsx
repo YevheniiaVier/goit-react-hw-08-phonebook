@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { useState, useMemo } from 'react';
 import shortid from 'shortid';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
 import { ModalButton } from './Button';
 import { editContact } from 'redux/contacts/contacts-operations';
 import { ReactComponent as CloseIcon } from '../../icons/close.svg';

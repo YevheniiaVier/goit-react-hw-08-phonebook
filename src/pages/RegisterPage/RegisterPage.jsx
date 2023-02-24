@@ -1,10 +1,11 @@
-import { Section } from 'components/Section/Section';
 import { Navigate } from 'react-router-dom';
-import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 import { useDispatch } from 'react-redux';
-import { signUp } from 'redux/auth/auth-operations';
-import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage';
+
 import { useAuth } from 'hooks/useAuth';
+import { signUp } from 'redux/auth/auth-operations';
+import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage';
+import { Section } from 'components/Section/Section';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();

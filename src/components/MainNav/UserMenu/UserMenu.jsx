@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 
 import { Menu, Mail, WelcomeMessage, BtnBox } from './UserMenu.styled';
-// import { ItemLink } from './UserMenu.styled';
 import { useAuth } from 'hooks/useAuth';
 import { logout } from 'redux/auth/auth-operations';
 import { ItemIconButton } from 'components/ContactItem/IconButton';

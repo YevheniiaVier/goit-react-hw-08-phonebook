@@ -19,7 +19,6 @@ export const ModalContent = styled.div`
   max-width: 600px;
   width: 100%;
   padding: 12px;
-  // background-color: #fff;
   background-image: linear-gradient(-225deg, rgba(56, 210, 210, .9) 50%, #E3FDF5 50%);
 }
   border-radius: 3px;

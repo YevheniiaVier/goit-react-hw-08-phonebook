@@ -4,10 +4,11 @@ import { useState, useMemo, useCallback } from 'react';
 import shortid from 'shortid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ReactComponent as CloseIcon } from '../../icons/close.svg';
 
-import { initialState } from './initialState';
 import { selectors, operations } from 'redux/contacts';
+
+import { ReactComponent as CloseIcon } from '../../icons/close.svg';
+import { initialState } from './initialState';
 import { Button } from './Button';
 import {
   StyledForm,

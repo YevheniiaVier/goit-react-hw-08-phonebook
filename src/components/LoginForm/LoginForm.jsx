@@ -1,4 +1,3 @@
-// import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useState, useMemo, useCallback } from 'react';
 import shortid from 'shortid';
@@ -30,10 +29,7 @@ export const LoginForm = ({ onSubmit }) => {
   };
 
   return (
-    <StyledForm
-      // autoComplete="off"
-      onSubmit={handleSubmit}
-    >
+    <StyledForm autoComplete="off" onSubmit={handleSubmit}>
       <Box>
         <StyledInput
           type="email"
@@ -49,7 +45,7 @@ export const LoginForm = ({ onSubmit }) => {
       <Box>
         <StyledInput
           value={state.password}
-          type="text"
+          type="password"
           name="password"
           id={passwordInputId}
           placeholder=" "

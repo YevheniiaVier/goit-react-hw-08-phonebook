@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledIconBtn = styled.button`
-  // margin-bottom: ${p => p.theme.space[4]}px;
   padding: ${p => p.theme.space[3]}px;
   border-radius: ${p => p.theme.radii.round};
   border: ${p => p.theme.borders.none};

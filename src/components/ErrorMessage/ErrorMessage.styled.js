@@ -11,8 +11,6 @@ export const ErrorText = styled.p`
 export const ErrorBox = styled.div`
   width: 500px;
   display: flex;
-  // flex-direction: column;
   text-align: center;
   justify-content: center;
-  // position: relative;
 `;

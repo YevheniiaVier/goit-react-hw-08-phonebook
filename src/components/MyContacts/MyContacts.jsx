@@ -10,7 +10,6 @@ import { Loader } from 'components/Loader/Loader';
 import noContactImg from '../../images/no-contacts.png';
 
 import { selectFilter } from 'redux/filter/filter-selectors';
-
 import { setFilter } from 'redux/filter/filter-slice';
 import { selectors, operations } from 'redux/contacts';
 
@@ -45,7 +44,7 @@ export const MyContacts = () => {
           imgPath={noContactImg}
         />
       )}
-      {filter && !contacts[0] && (
+      {!isLoading && filter && !contacts[0] && (
         <Notification text="No contact found" imgPath={noContactImg} />
       )}
     </>

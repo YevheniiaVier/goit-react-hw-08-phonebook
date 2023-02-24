@@ -1,10 +1,11 @@
-import { Section } from 'components/Section/Section';
 import { Navigate } from 'react-router-dom';
-import { LoginForm } from 'components/LoginForm/LoginForm';
 import { useDispatch } from 'react-redux';
+
+import { useAuth } from 'hooks/useAuth';
 import { login } from 'redux/auth/auth-operations';
 import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage';
-import { useAuth } from 'hooks/useAuth';
+import { Section } from 'components/Section/Section';
+import { LoginForm } from 'components/LoginForm/LoginForm';
 
 const LoginPage = () => {
   const dispatch = useDispatch();

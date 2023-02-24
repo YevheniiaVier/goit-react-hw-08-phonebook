@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
+
 import { IconButton } from 'components/IconButton/IconButton';
 import { Modal } from 'components/Modal/Modal';
 import { ContactForm } from 'components/ContactForm/ContactForm';
+
 import { ReactComponent as AddIcon } from '../../icons/addContact.svg';
 import { CgSun } from 'react-icons/cg';
 import { HiMoon } from 'react-icons/hi';
