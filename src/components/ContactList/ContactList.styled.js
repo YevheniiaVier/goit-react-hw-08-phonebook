@@ -7,5 +7,5 @@ export const StyledContacts = styled.ul`
   flex-direction: column;
   gap: 10px;
   padding: 0px;
-  width: 80%;
+  width: 100%;
 `;

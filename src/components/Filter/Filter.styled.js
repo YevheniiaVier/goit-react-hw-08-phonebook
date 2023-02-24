@@ -10,6 +10,7 @@ export const StyledFilter = styled.input`
   padding-left: 4px;
   padding-right: 4px;
   background-color: transparent;
+  padding: 15px;
 
   &::placeholder {
     font: inherit;
@@ -27,7 +28,6 @@ export const FilterBox = styled.div`
   border: 2px solid ${p => p.theme.colors.accent};
   overflow: hidden;
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
   &:hover,
   &:focus {
     border: 2px solid ${p => p.theme.colors.accentDark};

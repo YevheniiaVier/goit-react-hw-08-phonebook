@@ -12,8 +12,8 @@ export const SectionContainer = styled.section`
     rgba(38, 197, 235, 0.6) 49%,
     rgba(24, 110, 171, 0.6) 100%
   );
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
   padding-top: 100px;
   height: 100vh;
   display: flex;
